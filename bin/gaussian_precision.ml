@@ -76,10 +76,9 @@ let prior_kernel ~start ~alpha ~beta ~step =
 
 module Types = Make_thresholding_types (struct type param=float end)
 
-module T = Thresholding (Types)
-
 module Model = struct
-  module Smc = T.Smc
+  module Smc
+    = Smc_inference.Make (Types)
 
   (* we describe one walker as it proceeds from one reweighting to the next. the
      driver should become a stop criterion which looks at the current population
@@ -219,6 +218,7 @@ let _gamma_sampling_kernel =
    and test evidence calculation! *)
 
 module M = Model
+module T = Thresholding (Types)
 
 (* comparison to data *)
 let the_data = params |> data_gaussian_1d |> Seq.to_array
