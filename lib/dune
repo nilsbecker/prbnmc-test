@@ -1,0 +1,6 @@
+(library
+	(name evidence)
+	(libraries containers prbnmcn-dagger prbnmcn-dagger-stats prbnmcn-dagger-gsl gsl csv)
+	(modules evidence))
+
+

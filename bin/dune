@@ -1,0 +1,6 @@
+(executable
+	(name gaussian_precision)
+	(modes native)
+	(modules gaussian_precision)
+	(libraries evidence))
+
